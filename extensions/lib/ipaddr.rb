@@ -62,20 +62,23 @@ class IPAddr
             return ip
         end
 
-        # ---------------------------------------------------------
-
-        # Convert 255.255.255.0 to 24
-
-        def self.mask2mlen(mask)
-            len = 0
-            while len < 32 && mask & 0x80000000 != 0
-                mask <<= 1
-                mask &= 0xFFFFFFFF
-                len += 1
+        class ClassMethods
+            # ---------------------------------------------------------
+            # Convert 255.255.255.0 to 24
+            def mask2mlen(mask)
+                len = 0
+                while len < 32 && mask & 0x80000000 != 0
+                    mask <<= 1
+                    mask &= 0xFFFFFFFF
+                    len += 1
+                end
+                return len
             end
-            return len
         end
 
+        def self.included(klass)
+            klass.extend(ClassMethods)
+        end
         # ---------------------------------------------------------
 
         # to_s with a cidr prefix at the end
