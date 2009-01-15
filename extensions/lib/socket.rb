@@ -1,6 +1,6 @@
 class Socket
     module SocketExtensions
-        class ClassMethods
+        module ClassMethods
             def addr(host, port=nil)
                 if not port
                     raise "bad!" if not host =~ /(.*):(.*)/

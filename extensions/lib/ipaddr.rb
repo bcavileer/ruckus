@@ -62,7 +62,7 @@ class IPAddr
             return ip
         end
 
-        class ClassMethods
+        module ClassMethods
             # ---------------------------------------------------------
             # Convert 255.255.255.0 to 24
             def mask2mlen(mask)
