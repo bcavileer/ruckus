@@ -83,7 +83,8 @@ module Ruckus
                 cap << pad
             end
 
-            @value = uni ? cap.to_ascii : cap
+            # must work on a dup of str here or @value may get clobbered by str.slice!
+            @value = uni ? cap.to_ascii : cap.dup
 
             fin = -1
             mod = nul ? 1 : 0
