@@ -49,15 +49,24 @@ module Ruckus
     dir ||= ::File.basename(fname, '.*')
     search_me = ::File.expand_path(
         ::File.join(::File.dirname(fname), dir, '**', '*.rb'))
-
-    Dir.glob(search_me).each {|rb| require rb}
+    extensions = ::File.expand_path(::File.join(::File.dirname(fname),dir,'extensions','**','*.rb'))
+    puts extensions
+    spath = ::File.expand_path(::File.join(::File.dirname(fname), dir))
+    Dir.glob(extensions).each{|rb| puts rb; require rb}
+    require ::File.join(spath, 'parsel.rb')
+    require ::File.join(spath, 'number.rb')
+    require ::File.join(spath, 'str.rb')
+    require ::File.join(spath, 'structure.rb')
+    Dir.glob(search_me).reject{|rb| rb =~ /human_display\.rb/}.each {|rb| require rb}
+    require ::File.join(spath, 'human_display.rb')
   end
-
 end
 
-require 'extensions/extensions'
+Ruckus.require_all_libs_relative_to(__FILE__)
 
-%w[ parsel number ip str choice null blob filter structure dictionary
-    mutator vector mac_addr enum time_t selector dfuzz ].each do |f|
-    require 'ruckus/' + f
-end
+# require 'extensions/extensions'
+# 
+# %w[ parsel number ip str choice null blob filter structure dictionary
+#     mutator vector mac_addr enum time_t selector dfuzz ].each do |f|
+#     require 'ruckus/' + f
+# end
