@@ -43,7 +43,7 @@ Expect did to Tcl.
 
 ### DOM-Inspired
 
-Ruckus seperates metadata and actual content, and structures packets
+Ruckus separates metadata and actual content, and structures packets
 and file formats as trees of nodes, each with classes and (when desired)
 DOM-style id's (we call them "tags"). Ruckus data can be manipulated 
 with tree traversal and "mutated" with cascading style sheet selector-type
