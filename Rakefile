@@ -5,12 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "ruckus"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{A DOM-Inspired Ruby Smart Fuzzer}
+    gem.description = %Q{Ruckus: A DOM-Inspired Ruby Smart Fuzzer}
     gem.email = "td@matasano.com"
     gem.homepage = "http://github.com/tduehr/ruckus"
     gem.authors = ["tduehr", "tqbf"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "jeweler", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
