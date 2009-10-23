@@ -14,9 +14,9 @@
 module Ruckus
 end
 
-require 'extensions/extensions'
+require "#{File.dirname(__FILE__)}/extensions/extensions"
 
 %w[ parsel number ip str choice null blob filter structure dictionary
     mutator vector mac_addr enum time_t selector dfuzz ].each do |f|
-    require 'ruckus/' + f
+    require "#{File.dirname(__FILE__)}/ruckus/" + f
 end
