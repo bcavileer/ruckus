@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ruckus}
-  s.version = "0.5.0"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["tduehr", "tqbf"]
@@ -73,7 +73,7 @@ Gem::Specification.new do |s|
      "ruckus.gemspec"
   ]
   s.homepage = %q{http://github.com/tduehr/ruckus}
-  s.rdoc_options = ["--charset=UTF-8"]
+  s.rdoc_options = ["--inline-source", "--line-numbers", "--main", "README.txt"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{A DOM-Inspired Ruby Smart Fuzzer}
