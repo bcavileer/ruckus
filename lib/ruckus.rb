@@ -49,9 +49,8 @@ module Ruckus
     search_me = ::File.expand_path(
         ::File.join(::File.dirname(fname), dir, '**', '*.rb'))
     extensions = ::File.expand_path(::File.join(::File.dirname(fname),dir,'extensions','**','*.rb'))
-    puts extensions
     spath = ::File.expand_path(::File.join(::File.dirname(fname), dir))
-    Dir.glob(extensions).each{|rb| puts rb; require rb}
+    Dir.glob(extensions).each{|rb| require rb}
     require ::File.join(spath, 'parsel.rb')
     require ::File.join(spath, 'number.rb')
     require ::File.join(spath, 'str.rb')
