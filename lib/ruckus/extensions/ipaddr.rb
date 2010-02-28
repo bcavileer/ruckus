@@ -33,36 +33,21 @@ class IPAddr
             in_addr(str)
         end
 
-        # ---------------------------------------------------------
-
-        # construct an IPAddr from a dotted quad string or integer
-
-        def IPAddr.inet_addr(str)
-            if str.kind_of? String
-                IPAddr.lite(str).to_i
-            else
-                i = IPAddr.new(0, Socket::AF_INET)
-                i.set_int(str)
-                return i
-            end
-        end
-
-        # ---------------------------------------------------------
-
-        # construct an IPAddr from a dotted quad string without
-        # incurring a reverse lookup.
-
-        def IPAddr.lite(str)
-            ip = IPAddr.new(0, Socket::AF_INET)
-
-            parts = str.split "/"
-
-            ip.set_int(ip.inet_addr(parts[0]))
-            ip = ip.mask parts[1] if parts[1]
-            return ip
-        end
-
         module ClassMethods
+            # ---------------------------------------------------------
+
+            # construct an IPAddr from a dotted quad string or integer
+
+            def inet_addr(str)
+                if str.kind_of? String
+                    IPAddr.lite(str).to_i
+                else
+                    i = IPAddr.new(0, Socket::AF_INET)
+                    i.set_int(str)
+                    return i
+                end
+            end
+
             # ---------------------------------------------------------
             # Convert 255.255.255.0 to 24
             def mask2mlen(mask)
@@ -74,6 +59,22 @@ class IPAddr
                 end
                 return len
             end
+
+            # ---------------------------------------------------------
+
+            # construct an IPAddr from a dotted quad string without
+            # incurring a reverse lookup.
+
+            def lite(str)
+                # XXX self.new(0, Socket::AF_Inet, *args) instead?
+                ip = IPAddr.new(0, Socket::AF_INET)
+
+                parts = str.split "/"
+
+                ip.set_int(ip.inet_addr(parts[0]))
+                ip = ip.mask parts[1] if parts[1]
+                return ip
+            end
         end
 
         def self.included(klass)
@@ -84,6 +85,7 @@ class IPAddr
         # to_s with a cidr prefix at the end
 
         def to_cidr_s
+            # XXX not used
             "#{ to_s }/#{ self.class.mask2mlen(@mask_addr) }"
         end
 
@@ -92,6 +94,7 @@ class IPAddr
         # get the mask length
 
         def to_mlen
+            # XXX not used
             mask = self.to_i
             self.class.mask2mlen(mask)
         end
@@ -101,6 +104,8 @@ class IPAddr
         # get the highest address in the range defined by the netmask
 
         def top
+            # XXX not used
+            # XXX should use self.class.inet_addr instead?
             IPAddr.inet_addr(self.to_i | (0xFFFFFFFF & (~self.mask_addr)))
         end
 
@@ -109,6 +114,8 @@ class IPAddr
         # get the lowest address in the range defined by the netmask
 
         def bottom
+            # XXX not used
+            # XXX should use self.class instead of IPAddr
             IPAddr.inet_addr(self.to_i & self.mask_addr)
         end
 
@@ -118,6 +125,7 @@ class IPAddr
         # netmask.
 
         def choice
+            # XXX not used
             return self.clone if self.mask_addr == 0xFFFFFFFF
 
             span = self.top.to_i - self.bottom.to_i
@@ -132,6 +140,8 @@ class IPAddr
         # netmask
 
         def contains(i)
+            # XXX not used
+            # XXX should use self.class instead of IPAddr
             if not i.kind_of? IPAddr
                 i = IPAddr.inet_addr i
             end

@@ -8,6 +8,7 @@ class Fixnum
         # 0.stepwith(buffer.size, 4096) {|off,len| pp buffer[off,len]}
         # The "len" parameter accounts for the inevitable short final block.
         def stepwith(limit, stepv, &block)
+            # XXX not used
             step(limit, stepv) do |i|
                 remt = limit - i
                 yield i, remt.cap(stepv)

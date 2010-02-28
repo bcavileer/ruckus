@@ -20,6 +20,7 @@ class Class
         end
 
         def alias_cmethod(to, from)
+            # XXX not used
             (class << self;self;end).class_eval {
                 define_method to do |*args|
                     send(from, *args)

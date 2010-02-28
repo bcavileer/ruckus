@@ -13,12 +13,14 @@ class Array
 
         #return first hash-like element with key k
         def kassoc(k)
+            # XXX not used
             each { |h| return h if h.try(:has_key?, k) }
             return nil
         end
 
         #return first hash-like element with value v
         def vassoc(v)
+            # XXX not used
             each { |h| return h if h.try(:has_value?, v) }
             return nil
         end

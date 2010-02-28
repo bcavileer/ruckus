@@ -287,6 +287,7 @@ class String
 
         # byte rotation cypher (yes it's been useful)
         def rotate_bytes(k=0)
+            # XXX not used
             r = []
             each_byte do |b|
                 r << ((b + k) % 256).chr
@@ -309,6 +310,7 @@ class String
 
         # "foo: bar".shift_tok /:\s*/ => "foo" # leaving "bar"
         def shift_tok(rx)
+            # XXX not used
             src = rx.source if rx.kind_of? Regexp
             rx = Regexp.new "(#{ src })"
             idx = (self =~ rx)

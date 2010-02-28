@@ -5,6 +5,7 @@ module IRB
   # Starts an IRB session with a specific binding. To use type:
   # IRB.start_session(binding)
   def self.start_session(binding)
+    # XXX not used
     IRB.setup(nil)
 
     workspace = WorkSpace.new(binding)

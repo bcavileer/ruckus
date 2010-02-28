@@ -2,6 +2,7 @@ class File
     module FileExtensions
         module ClassMethods
             def mkfifo(name, mode="666", open_mode="r")
+                # XXX not used
                 if File.exists? name and File.pipe? name # Leftover from before
                     File.delete name
                 end

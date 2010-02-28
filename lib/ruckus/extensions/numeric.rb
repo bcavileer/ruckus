@@ -1,5 +1,7 @@
 class Numeric
     module NumericExtensions
+        # XXX likely these should be moved to Integer
+
         # This HAS TO BE in the library somewhere already, but: give a fixnum,
         # cap it at some number (ie, max(x, y) -> x). 10.cap(9) => 9.
         def cap(limit); self > limit ? limit : self; end
