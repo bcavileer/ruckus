@@ -12,7 +12,7 @@ module Ruckus
                     block = lambda { send(arg) }
                 end
 
-                self.class.initializers << block
+                self.initializers << block
             end
 
             def override(field, val)
