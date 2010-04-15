@@ -77,7 +77,7 @@ Gem::Specification.new do |s|
      "test/test_replace.rb"
   ]
   s.homepage = %q{http://github.com/tduehr/ruckus}
-  s.rdoc_options = ["--inline-source", "--line-numbers", "--main", "README.txt"]
+  s.rdoc_options = ["--inline-source", "--line-numbers", "--main", "README.markdown"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{A DOM-Inspired Ruby Smart Fuzzer}
