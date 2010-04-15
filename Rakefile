@@ -11,7 +11,7 @@ begin
     gem.homepage = "http://github.com/tduehr/ruckus"
     gem.authors = ["tduehr", "tqbf"]
     gem.add_development_dependency "jeweler", ">= 0"
-    gem.rdoc_options = ["--inline-source", "--line-numbers", "--main", "README.txt"]
+    gem.rdoc_options = ["--inline-source", "--line-numbers", "--main", "README.mardown"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
