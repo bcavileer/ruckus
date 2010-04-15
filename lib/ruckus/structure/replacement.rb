@@ -20,7 +20,7 @@ module Ruckus
                 # it did exist, so update the names index
                 # and the previous entry in the structure
 
-                self.class.structure_field_names[name] = found
+                self.class.structure_field_names[obj.try(:name)] = found
                 @value[found] = obj
             else
                 false
