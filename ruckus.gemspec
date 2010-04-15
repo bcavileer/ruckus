@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ruckus}
-  s.version = "0.5.2"
+  s.version = "0.5.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["tduehr", "tqbf"]
-  s.date = %q{2009-10-23}
+  s.date = %q{2010-04-15}
   s.description = %q{Ruckus: A DOM-Inspired Ruby Smart Fuzzer}
   s.email = %q{td@matasano.com}
   s.extra_rdoc_files = [
@@ -70,13 +70,23 @@ Gem::Specification.new do |s|
      "lib/ruckus/structure_shortcuts.rb",
      "lib/ruckus/time_t.rb",
      "lib/ruckus/vector.rb",
-     "ruckus.gemspec"
+     "ruckus.gemspec",
+     "test/test_decides.rb",
+     "test/test_mutator.rb",
+     "test/test_override.rb",
+     "test/test_replace.rb"
   ]
   s.homepage = %q{http://github.com/tduehr/ruckus}
   s.rdoc_options = ["--inline-source", "--line-numbers", "--main", "README.txt"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{A DOM-Inspired Ruby Smart Fuzzer}
+  s.test_files = [
+    "test/test_decides.rb",
+     "test/test_mutator.rb",
+     "test/test_override.rb",
+     "test/test_replace.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
