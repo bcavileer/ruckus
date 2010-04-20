@@ -39,12 +39,14 @@ class TestNestedDecide3 < TestSubKlass2
 end
 
 class TestDecides < Test::Unit::TestCase
-  def test_decides
+  def test_parent_class
     o, s = TestKlass.factory("\000\000\000\001\000\000\000\002\000\000\000\003\000\000\000\004")
     assert_equal("\000\000\000\003\000\000\000\004",s)
     assert_equal(TestSubKlass1, o.class)
     assert_equal(1,o.decider.value)
-    
+  end
+  
+  def test_child_class
     o, s = TestKlass.factory("\000\000\000\002\000\000\000\002\000\000\000\003\000\000\000\004")
     assert_equal(TestNestedDecide3, o.class)
     assert_equal(4, o.ternary_element.value)
@@ -56,6 +58,9 @@ class TestDecides < Test::Unit::TestCase
     assert_equal(2, tnd2.secondary_element.value)
     assert_equal(2, tnd2.secondary_decider.value)
     assert_equal(4, tnd2.ternary_element.value)
+  end
+
+  def test_scope
     flunk("Scoping issues - fails until test classes can be brought into the TestDecides class' scope")
   end
 end
