@@ -11,6 +11,7 @@
 # License:: Private
 # Revision:: $Id$
 #
+# This is not compatible with 1.9.2
 
 require 'generator'
 

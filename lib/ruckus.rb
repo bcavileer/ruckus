@@ -55,7 +55,8 @@ module Ruckus
     require ::File.join(spath, 'number.rb')
     require ::File.join(spath, 'str.rb')
     require ::File.join(spath, 'structure.rb')
-    Dir.glob(search_me).reject{|rb| rb =~ /human_display\.rb/}.each {|rb| require rb}
+    # human_display needs to be loaded last and dfuzz isn't 1.9 compatable so don't load them now
+    Dir.glob(search_me).reject{|rb| rb =~ /(human_display|dfuzz)\.rb/}.each {|rb| require rb}
     require ::File.join(spath, 'human_display.rb')
   end
 end
