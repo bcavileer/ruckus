@@ -14,5 +14,6 @@ class TestRespondTo < Test::Unit::TestCase
     assert(trc.respond_to?(:tag?))
     assert(trc.respond_to?(:tagged_element))
     assert(trc.respond_to?(:tagged))
+    assert(!trc.respond_to?(:not_a_value))
   end
 end

@@ -255,6 +255,10 @@ module Ruckus
         def each_field
             @value.each {|f| yield f.name, f}
         end
+        
+        def respond_to?(meth)
+          !!(self.class.structure_field_names.include?(meth) || self.find_tag(meth))
+        end
     end
 end
 
