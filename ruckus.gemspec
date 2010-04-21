@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ruckus}
-  s.version = "0.5.5"
+  s.version = "0.5.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["tduehr", "tqbf"]
-  s.date = %q{2010-04-20}
+  s.date = %q{2010-04-21}
   s.description = %q{Ruckus: A DOM-Inspired Ruby Smart Fuzzer}
   s.email = %q{td@matasano.com}
   s.extra_rdoc_files = [
@@ -74,7 +74,8 @@ Gem::Specification.new do |s|
      "test/test_decides.rb",
      "test/test_mutator.rb",
      "test/test_override.rb",
-     "test/test_replace.rb"
+     "test/test_replace.rb",
+     "test/test_respondto.rb"
   ]
   s.homepage = %q{http://github.com/tduehr/ruckus}
   s.rdoc_options = ["--inline-source", "--line-numbers", "--main", "README.markdown"]
