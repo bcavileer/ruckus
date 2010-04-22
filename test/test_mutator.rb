@@ -10,7 +10,6 @@ class TestMutator < Test::Unit::TestCase
   def test_mutator
     tm = TestMutation.new
     mut_int = tm.mfield.permute
-    pp mut_int
     mfield, field2 = tm.to_s.unpack("NN")
     assert_equal(mut_int, mfield)
     assert_equal(mut_int, tm.mfield.value.to_i)
