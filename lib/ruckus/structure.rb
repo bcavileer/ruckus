@@ -256,8 +256,8 @@ module Ruckus
             @value.each {|f| yield f.name, f}
         end
         
-        def respond_to?(meth)
-          !!(self.class.structure_field_names.include?(meth) || self.find_tag(meth))
+        def respond_to?(symbol, include_priv = false)
+          !!(super(symbol, include_priv) || self.class.structure_field_names.include?(symbol) || self.find_tag(symbol))
         end
     end
 end
