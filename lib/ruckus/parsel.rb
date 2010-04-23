@@ -226,6 +226,10 @@ module Ruckus
             @value.send meth, *args, &block
         end
 
+        def respond_to?(symbol, include_priv = false)
+          !!(super(symbol, include_priv) || @value.respond_to?(symbol, include_priv))
+        end
+
         # Traverse all the way to the root of the tree
         #
         def root(p = self, &block)

@@ -257,7 +257,7 @@ module Ruckus
         end
         
         def respond_to?(symbol, include_priv = false)
-          !!(super(symbol, include_priv) || self.class.structure_field_names.include?(symbol) || self.find_tag(symbol))
+          !!(super(symbol, include_priv) || @value.respond_to?(symbol, include_priv) || self.class.structure_field_names.include?(symbol) || self.find_tag(symbol))
         end
     end
 end
