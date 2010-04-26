@@ -17,8 +17,8 @@ class Object
       end
     end
 
-    def tap(&block)
-      yield self
+    def tap
+      yield(self)
       self
     end if !(Object.instance_methods.include? :tap)
   end
