@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ruckus}
-  s.version = "0.5.6"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["tduehr", "tqbf"]
-  s.date = %q{2010-04-21}
+  s.date = %q{2010-04-28}
   s.description = %q{Ruckus: A DOM-Inspired Ruby Smart Fuzzer}
   s.email = %q{td@matasano.com}
   s.extra_rdoc_files = [
