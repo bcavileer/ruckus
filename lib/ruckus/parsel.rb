@@ -46,7 +46,7 @@ module Ruckus
         # What's our native endianness? :big or :little
         #
         def self.endian?
-            @endianness ||= ([1].pack("I")[0] == 1 ? :little : :big)
+            @endianness ||= ([1].pack("I") == "\x01\x00\x00\x00" ? :little : :big)
         end
 
         # Is this endianness native?
